@@ -16,5 +16,11 @@
     "title": "Why I Like Working With Computers",
     "body": "I enjoy working with computers because there is always something new to learn. Whether I am programming, fixing a problem, or setting up a system, each project gives me a chance to improve my skills.",
     "createdUtc": "2026-09-24T00:44:05.3349312Z"
+  },
+  {
+    "id": 4,
+    "title": "RAM Test Complete",
+    "body": "Finished testing the RAM today. Everything passed without errors, so the memory appears to be working correctly. Next step is putting the system back together and continuing with the rest of the setup.",
+    "createdUtc": "2026-09-30T23:43:05.5273042Z"
   }
 ]

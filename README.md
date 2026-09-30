@@ -1,36 +1,32 @@
-# MicroBlog
+# MicroBlog - Repositories & Dependency Injection
 
 ## Description
 
-MicroBlog is a simple ASP.NET Core Razor Pages application for creating and viewing blog posts. Posts are saved to a JSON file so they remain available after the application is restarted.
+MicroBlog is a simple ASP.NET Core Razor Pages application for creating and viewing blog posts.
+
+This version uses the repository pattern and ASP.NET Core dependency injection.
+
+Two repository implementations are included:
+
+- `InMemoryBlogRepository` - stores posts in memory
+- `JsonBlogRepository` - stores posts in `data/posts.json`
 
 ## Features
 
 - Create new blog posts with a title and body
 - View all posts on the Index page
 - View individual posts on a Details page
-- Store posts in `data/posts.json`
+- Uses `IBlogRepository`
+- Uses ASP.NET Core dependency injection
+- Supports both in-memory and JSON storage
 - Uses a shared layout and navigation bar
 - Uses the `_PostCard` partial view to display post summaries
 
-## How to Run
+## Switching Repositories
 
-1. Open the project in Visual Studio.
-2. Build and run the project.
-3. Open the local address shown by ASP.NET Core.
-4. Use **New Post** to create a blog post.
-5. Use **ReadMore** to view the Details page for a post.
+The repository implementation is registered in `Program.cs`.
 
-## Screenshots
+To use the JSON repository:
 
-### Index Page
-
-![Index Page](screenshots/index.png)
-
-### Create Page
-
-![Create Page](screenshots/create.png)
-
-### Details Page
-
-![Details Page](screenshots/details.png)
+```csharp
+builder.Services.AddSingleton<IBlogRepository, JsonBlogRepository>();

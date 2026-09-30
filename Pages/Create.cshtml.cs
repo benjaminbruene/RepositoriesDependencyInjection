@@ -8,8 +8,8 @@ namespace MicroBlog.Pages
 {
     public class CreateModel : PageModel
     {
-        private readonly PostStore _store;
-        public CreateModel(PostStore store) => _store = store;
+        private readonly IBlogRepository _repo;
+        public CreateModel(IBlogRepository repo) => _repo = repo;
 
         [BindProperty]
         public InputModel Form { get; set; } = new();
@@ -40,7 +40,9 @@ namespace MicroBlog.Pages
                 Body = Form.Body.Trim()
             };
 
-            post = _store.Add(post);
+            _repo.Add(post);
+            _repo.Save(); //Does nothing on RAM, persist for JSON
+
             return RedirectToPage("/Details", new { id = post.Id });
         }
     }
