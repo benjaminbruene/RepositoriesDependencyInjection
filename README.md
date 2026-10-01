@@ -30,3 +30,20 @@ To use the JSON repository:
 
 ```csharp
 builder.Services.AddSingleton<IBlogRepository, JsonBlogRepository>();
+```
+
+To use the in-memory repository:
+
+```csharp
+builder.Services.AddSingleton<IBlogRepository, InMemoryBlogRepository>();
+```
+
+Only one repository implementation should be registered at a time.
+
+## How to Run
+
+1. Open the project in Visual Studio.
+2. Build and run the project.
+3. Open the local address shown by ASP.NET Core.
+4. Use **New Post** to create a blog post.
+5. Use **Read More** to view the Details page for a post.
